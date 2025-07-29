@@ -7,7 +7,7 @@ extends Sprite2D
 @export var speed: float = 10.0
 
 # _process function runs every frame rendered (by default it is
-# your monitor's refresh rate)
+# your monitor's refresh rate because V-sync is enabled)
 # delta is the time elapsed since last frame was rendered
 # -> void is what this function returns
 func _process(delta: float) -> void:
