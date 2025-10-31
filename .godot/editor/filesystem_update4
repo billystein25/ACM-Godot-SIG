@@ -1,2 +1,4 @@
-res://node_2d.tscn
-res://moving_sprite/node_2d.tscn
+res://scenes/entities/player/player.tscn
+res://scenes/entities/player/player.gd
+res://scenes/levels/root_level.tscn
+res://scenes/static/green/green_tileset.tres
