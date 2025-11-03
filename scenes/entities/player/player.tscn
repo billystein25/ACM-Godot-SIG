@@ -81,15 +81,18 @@ _data = {
 &"run": SubResource("Animation_635qg")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("skin", "animation_player", "coyote_timer")]
 collision_mask = 2
 script = ExtResource("1_635qg")
+skin = NodePath("PlayerSprite")
+animation_player = NodePath("AnimationPlayer")
+coyote_timer = NodePath("CoyoteTimer")
 max_speed = 300.0
 jump_power = 500.0
 acceleration = 750.0
 deceleration = 600.0
-active_upward_gravity = 980.0
-neutral_upward_gravity = 2000.0
+active_upward_gravity = 950.0
+neutral_upward_gravity = 2500.0
 downward_gravity = 2500.0
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]

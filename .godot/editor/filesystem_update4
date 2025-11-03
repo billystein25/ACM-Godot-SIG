@@ -1,5 +1,5 @@
-res://scenes/levels/root_level.tscn
-res://scenes/static/green/green_tileset.tres
-res://scenes/levels/root_level.gd
-res://scenes/entities/player/player.gd
 res://scenes/entities/player/player.tscn
+res://scenes/static/green/green_tileset.tres
+res://scenes/levels/root_level.tscn
+res://scenes/entities/player/player.gd
+res://scenes/levels/root_level.gd
