@@ -27,10 +27,3 @@ position = Vector2(1024, 0)
 
 [node name="Marker2D2" type="Marker2D" parent="SimpleGreenPlatform/MovingBodyComponent" index="1"]
 position = Vector2(2051, 0)
-
-[node name="MovingBodyComponent" type="Node" parent="SimpleGreenPlatform/MovingBodyComponent/Marker2D2" index="0" node_paths=PackedStringArray("parent")]
-script = ExtResource("3_kvnv3")
-parent = NodePath("..")
-metadata/_custom_type_script = "uid://brjrchx1yxd8r"
-
-[node name="Marker2D" type="Marker2D" parent="SimpleGreenPlatform/MovingBodyComponent/Marker2D2/MovingBodyComponent" index="0"]

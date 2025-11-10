@@ -7,14 +7,18 @@ enum BOUNCE_MODES {CYCLE, PING_PONG}
 @export var bounce_mode : BOUNCE_MODES
 @export var time_to_reach_point : float = 2.0
 @export var wait_time_between_movement : float = 5.0
+@export_tool_button("Print Button") var bttn = print_list
 
 var list_of_marker_positions : Array[Vector2]:
 	set(value):
 		list_of_marker_positions = value
-		await get_tree().process_frame
 		_get_configuration_warnings()
+
 var curr_position_in_array : int = 0
 var moving_forward := true
+
+func print_list() -> void:
+	print(list_of_marker_positions)
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings : PackedStringArray
@@ -22,19 +26,19 @@ func _get_configuration_warnings() -> PackedStringArray:
 		warnings.append("This node needs at least 2 Marker2D nodes to function properly.")
 	return warnings
 
-func _init() -> void:
-	child_entered_tree.connect(_on_child_entered_tree)
-	child_exiting_tree.connect(_on_child_exited_tree)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	child_entered_tree.connect(_on_child_entered_tree)
 	
 	if Engine.is_editor_hint():
 		if not parent:
 			parent = get_parent()
 		_make_positions_list()
 	else:
-		if list_of_marker_positions.size() >= 2:
+		_make_positions_list()
+		if list_of_marker_positions.size() >= 2 and parent:
 			_advance()
 
 func _make_positions_list() -> void:
@@ -42,7 +46,6 @@ func _make_positions_list() -> void:
 	for child in get_children():
 		if child is Marker2D:
 			list_of_marker_positions.append(child.position)
-
 
 func _advance() -> void:
 	if bounce_mode == BOUNCE_MODES.CYCLE:
@@ -60,20 +63,21 @@ func _advance() -> void:
 			if curr_position_in_array == -1:
 				curr_position_in_array += 2
 				moving_forward = true
-	
+	print("in advance. list: ", list_of_marker_positions)
 	_move_to_point(list_of_marker_positions[curr_position_in_array])
 
 func _move_to_point(next: Vector2) -> void:
+	print("moving to point: ", next)
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(parent, "position", next, time_to_reach_point)
 	await tween.finished
 	if wait_time_between_movement > 0.0:
 		await get_tree().create_timer(wait_time_between_movement).timeout
-		
 	_advance()
 
-func _on_child_entered_tree(_node: Node) -> void:
+func _on_child_entered_tree(node: Node) -> void:
+	node.tree_exited.connect(_on_child_exited_tree.bind(node))
 	_make_positions_list()
 
 func _on_child_exited_tree(_node: Node) -> void:

@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1762727252
+::res://::1762804238
 icon.svg::CompressedTexture2D::2552290710039435759::1760992475::1760992484::1::::<><><>0<>0<>a186cf6b58d2a79ef9464aeed370e90d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
 README.md::TextFile::-1::1762721445::0::1::::<><><>0<>0<><>::
 ::res://assets/::1762194956
@@ -20,8 +20,8 @@ root_level.tscn::PackedScene::7577402788083938762::1762725545::0::1::::<><><>0<>
 level_1.tscn::PackedScene::2226232464016308925::1762724470::0::1::::<><><>0<>0<><>::uid://df7symw753uyk::::res://scenes/levels/root_level.tscn<>uid://d0hvehb6sqjei::::res://assets/backgrounds/set1_background.png<>uid://cs08u3xbvecjs::::res://assets/backgrounds/set2_tiles.png<>uid://d2gwimfns76or::::res://assets/backgrounds/set4_hills.png
 ::res://scenes/levels/level_2/::1762724658
 level_2.tscn::PackedScene::8879857066128551990::1762724658::0::1::::<><><>0<>0<><>::uid://df7symw753uyk::::res://scenes/levels/root_level.tscn<>uid://d0hvehb6sqjei::::res://assets/backgrounds/set1_background.png<>uid://d2gwimfns76or::::res://assets/backgrounds/set4_hills.png
-::res://scenes/levels/level_3/::1762727246
-level_3.tscn::PackedScene::5925534415914752862::1762727246::0::1::::<><><>0<>0<><>::uid://df7symw753uyk::::res://scenes/levels/root_level.tscn<>uid://bvisebshs36mq::::res://scenes/static/simple_green_platform/simple_green_platform.tscn<>uid://brjrchx1yxd8r::::res://scripts/components/moving_body_component/moving_body_component.gd
+::res://scenes/levels/level_3/::1762804068
+level_3.tscn::PackedScene::5925534415914752862::1762804068::0::1::::<><><>0<>0<><>::uid://df7symw753uyk::::res://scenes/levels/root_level.tscn<>uid://bvisebshs36mq::::res://scenes/static/simple_green_platform/simple_green_platform.tscn<>uid://brjrchx1yxd8r::::res://scripts/components/moving_body_component/moving_body_component.gd
 ::res://scenes/moving_sprite/::1762194956
 icon.gd::GDScript::897357868730679494::1762194956::0::1::::<>Sprite2D<><>0<>0<><>::
 node_2d.tscn::PackedScene::6432106584243898160::1762194956::0::1::::<><><>0<>0<><>::uid://bcml4cq36rtfb::::res://icon.svg<>uid://m1xmacan7i7w::::res://scenes/moving_sprite/icon.gd
@@ -31,12 +31,12 @@ doorGreen_top.png::CompressedTexture2D::1866632511021715036::1762722130::1762722
 scene_transitioner.gd::GDScript::2244857833331754438::1762722542::0::1::::<>Area2D<><>0<>0<><>::
 scene_transitioner.tscn::PackedScene::6034806672018224479::1762722553::0::1::::<><><>0<>0<><>::uid://68oqlrbcx1iw::::res://scenes/scene_transitioner/scene_transitioner.gd<>uid://1uhfuo4pvv7q::::res://scenes/scene_transitioner/doorGreen_top.png
 ::res://scenes/static/::1762724359
-::res://scenes/static/green/::1762727036
+::res://scenes/static/green/::1762804033
 0_green_terrain_spritesheet_size_64.png::CompressedTexture2D::3754415948103911164::1762194956::1762194956::1::::<><><>0<>0<>d3c737805abe1f143bbf4e097ee066b8<>res://.godot/imported/0_green_terrain_spritesheet_size_64.png-d7189bed32412aeab6cfce78f53cbd39.ctex::
-green_tileset.tres::TileSet::8442638317545464867::1762727036::0::1::::<><><>0<>0<><>::uid://btqwxgs05agsa::::res://scenes/static/green/0_green_terrain_spritesheet_size_64.png
+green_tileset.tres::TileSet::8442638317545464867::1762804033::0::1::::<><><>0<>0<><>::uid://btqwxgs05agsa::::res://scenes/static/green/0_green_terrain_spritesheet_size_64.png
 ::res://scenes/static/simple_green_platform/::1762724842
 simple_green_platform.tscn::PackedScene::3878001551842743684::1762724842::0::1::::<><><>0<>0<><>::uid://dsjxawws8b57t::::res://scenes/static/green/green_tileset.tres
 ::res://scripts/::1762723596
 ::res://scripts/components/::1762723623
-::res://scripts/components/moving_body_component/::1762727246
-moving_body_component.gd::GDScript::3599246590199283511::1762727246::0::1::::MovingBodyComponent<>Node<><>0<>1<><>::
+::res://scripts/components/moving_body_component/::1762804209
+moving_body_component.gd::GDScript::3599246590199283511::1762804209::0::1::::MovingBodyComponent<>Node<><>0<>1<><>::
