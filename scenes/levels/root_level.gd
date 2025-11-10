@@ -15,6 +15,8 @@ func _ready() -> void:
 	# Select the DeathPlane from the scene tree and check for other signals it has by 
 	# navigating to the Node tab at the left, next to Inspector.
 	death_plane.body_entered.connect(_on_player_entered_death_plane)
+	for enemy in get_tree().get_nodes_in_group("EnemyFloatingSpike"):
+		enemy.hit_player.connect(_on_spike_hit_player)
 
 # We listen to the body_entered signal and call this function when it is emitted.
 func _on_player_entered_death_plane(_body: Node2D) -> void:
@@ -22,4 +24,7 @@ func _on_player_entered_death_plane(_body: Node2D) -> void:
 	# From this structure we call the reload_current_scene function to restart
 	# this scene. We also use call_deferred which calls this function after the current
 	# frame is processed, to ensure no weird physics calls happen.
+	get_tree().reload_current_scene.call_deferred()
+
+func _on_spike_hit_player(_spike: Node2D) -> void:
 	get_tree().reload_current_scene.call_deferred()

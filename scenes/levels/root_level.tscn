@@ -15,16 +15,16 @@ tile_set = ExtResource("1_5bocx")
 
 [node name="SceneTransitioner" parent="." instance=ExtResource("7_008bx")]
 
-[node name="Player" parent="." instance=ExtResource("2_ujr3r")]
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-physics_interpolation_mode = 2
-offset = Vector2(50, -100)
-position_smoothing_enabled = true
-
 [node name="DeathPlane" type="Area2D" parent="."]
 position = Vector2(0, 150)
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
 shape = SubResource("WorldBoundaryShape2D_ujr3r")
+
+[node name="Player" parent="." instance=ExtResource("2_ujr3r")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+physics_interpolation_mode = 2
+offset = Vector2(50, -100)
+position_smoothing_enabled = true

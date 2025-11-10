@@ -1,10 +1,11 @@
+Parallax2D
+Sprite2D
 Marker2D
 MovingBodyComponent
-Area2D
 CollisionShape2D
+AnimatedSprite2D
+Area2D
 TileMapLayer
-Sprite2D
-Parallax2D
 Timer
 Camera2D
 AnimationPlayer

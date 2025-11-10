@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://nsyg3mbb7632"]
+
+[ext_resource type="Texture2D" uid="uid://wfb2w7i7bau1" path="res://scenes/entities/enemy_floating_spike/enemyFloating_1.png" id="1_f8q0t"]
+[ext_resource type="Script" uid="uid://dfjiax2hai277" path="res://scenes/entities/enemy_floating_spike/enemy_floating_spike.gd" id="1_i3bhn"]
+[ext_resource type="Texture2D" uid="uid://cna3mg1k3d6xj" path="res://scenes/entities/enemy_floating_spike/enemyFloating_2.png" id="2_i3bhn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_62578"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f8q0t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_i3bhn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ar4k2"]
+radius = 20.024984
+
+[node name="EnemyFloatingSpike" type="Area2D" groups=["EnemyFloatingSpike"]]
+script = ExtResource("1_i3bhn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_62578")
+autoplay = "default"
+frame_progress = 0.20495322
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ar4k2")

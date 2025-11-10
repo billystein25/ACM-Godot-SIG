@@ -7,7 +7,6 @@ enum BOUNCE_MODES {CYCLE, PING_PONG}
 @export var bounce_mode : BOUNCE_MODES
 @export var time_to_reach_point : float = 2.0
 @export var wait_time_between_movement : float = 5.0
-@export_tool_button("Print Button") var bttn = print_list
 
 var list_of_marker_positions : Array[Vector2]:
 	set(value):
@@ -16,9 +15,6 @@ var list_of_marker_positions : Array[Vector2]:
 
 var curr_position_in_array : int = 0
 var moving_forward := true
-
-func print_list() -> void:
-	print(list_of_marker_positions)
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings : PackedStringArray
@@ -63,11 +59,9 @@ func _advance() -> void:
 			if curr_position_in_array == -1:
 				curr_position_in_array += 2
 				moving_forward = true
-	print("in advance. list: ", list_of_marker_positions)
 	_move_to_point(list_of_marker_positions[curr_position_in_array])
 
 func _move_to_point(next: Vector2) -> void:
-	print("moving to point: ", next)
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property(parent, "position", next, time_to_reach_point)
@@ -77,7 +71,8 @@ func _move_to_point(next: Vector2) -> void:
 	_advance()
 
 func _on_child_entered_tree(node: Node) -> void:
-	node.tree_exited.connect(_on_child_exited_tree.bind(node))
+	if not node.tree_exited.is_connected(_on_child_exited_tree):
+		node.tree_exited.connect(_on_child_exited_tree.bind(node))
 	_make_positions_list()
 
 func _on_child_exited_tree(_node: Node) -> void:
