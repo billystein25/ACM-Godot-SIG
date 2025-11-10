@@ -22,12 +22,13 @@ animations = [{
 radius = 20.024984
 
 [node name="EnemyFloatingSpike" type="Area2D" groups=["EnemyFloatingSpike"]]
+collision_layer = 16
 script = ExtResource("1_i3bhn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_62578")
 autoplay = "default"
-frame_progress = 0.20495322
+frame_progress = 0.6419431
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ar4k2")

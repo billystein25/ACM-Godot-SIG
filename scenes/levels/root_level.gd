@@ -15,6 +15,15 @@ func _ready() -> void:
 	# Select the DeathPlane from the scene tree and check for other signals it has by 
 	# navigating to the Node tab at the left, next to Inspector.
 	death_plane.body_entered.connect(_on_player_entered_death_plane)
+	
+	# As soon as the scene loads we get every enemy via their group and connect their
+	# signal. There's nothing stopping us from connecting multiple signals to the
+	# same function.
+	# To connect all the signals we will iterate through all the enemies that are in the
+	# EnemyFloatingSpike group. Godot does some magic with hashing so using groups is
+	# much faster than checking through every child node in the scene tree and checking
+	# if it's an enemy. The signal hit_player is our custom signal we defined in the 
+	# EnemyFloatingSpike scene.
 	for enemy in get_tree().get_nodes_in_group("EnemyFloatingSpike"):
 		enemy.hit_player.connect(_on_spike_hit_player)
 

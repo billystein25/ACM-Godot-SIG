@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=4 uid="uid://bvisebshs36mq"]
 
-[ext_resource type="TileSet" uid="uid://dsjxawws8b57t" path="res://scenes/static/green/green_tileset.tres" id="1_83aye"]
+[ext_resource type="TileSet" uid="uid://dsjxawws8b57t" path="res://scenes/static/main_tileset.tres" id="1_83aye"]
 
 [node name="SimpleGreenPlatform" type="TileMapLayer"]
 tile_map_data = PackedByteArray("AAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAD+/wEAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAIAAAACAAAAAAACAAAAAAACAAEAAAACAAIAAAA=")
