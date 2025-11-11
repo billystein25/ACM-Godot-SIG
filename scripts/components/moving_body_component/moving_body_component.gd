@@ -179,9 +179,14 @@ func _move_to_point(next: Vector2) -> void:
 ## and the positions list is updated by calling [method _make_positions_list].
 func _on_child_entered_tree(node: Node) -> void:
 	if not node.tree_exited.is_connected(_on_child_exited_tree):
-		node.tree_exited.connect(_on_child_exited_tree.bind(node))
+		# We connect the child's tree_exited signal because it is emitted when the child
+		# has left the scene so we can properly update the list. The self node's 
+		# child_exiting_tree signal is emitted when the child is about to exit the tree
+		# but hasn't just yet, so if we updated the list then the child would still be in
+		# the tree so the list would be incorrect.
+		node.tree_exited.connect(_on_child_exited_tree)
 	_make_positions_list()
 
 ## Listens to the [signal Node.tree_exited] signal emitted by each child of this node.
-func _on_child_exited_tree(_node: Node) -> void:
+func _on_child_exited_tree() -> void:
 	_make_positions_list()
