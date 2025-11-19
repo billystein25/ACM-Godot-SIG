@@ -159,6 +159,8 @@ func _move_to_point(next: Vector2) -> void:
 	# We set the tween ease and transition type to make the movement smoother.
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.set_trans(Tween.TRANS_SINE)
+	# Almost fixes displacement when the player is standing on top of the platform.
+	tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	# The syntax to tween the property goes as follows:
 	# From the tween we access its tween_property function which takes 4 parameters.
 	# 1: The Object that we want to tween its property.

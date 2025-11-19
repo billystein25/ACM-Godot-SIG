@@ -85,7 +85,8 @@ func _process(_delta: float) -> void:
 # physics process time then you need to optimize your code.
 func _physics_process(delta: float) -> void:
 	
-	# We simply call the _handle_jump function which takes one argument 'delta'.
+	# We simply call the _handle_jump and _handle_movement functions which each take one
+	# argument 'delta'.
 	_handle_jump(delta)
 	_handle_movement(delta)
 	
