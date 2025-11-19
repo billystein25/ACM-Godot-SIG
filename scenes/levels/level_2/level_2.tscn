@@ -37,10 +37,11 @@ scene_to_transition = "uid://cqomxleonqqti"
 [node name="EnemyFloatingSpike" parent="." index="5" instance=ExtResource("4_hopjm")]
 position = Vector2(199, -267)
 
-[node name="MovingBodyComponent" type="Node" parent="EnemyFloatingSpike" index="2" node_paths=PackedStringArray("parent")]
+[node name="MovingBodyComponent" type="Node" parent="EnemyFloatingSpike" index="2"]
 script = ExtResource("5_68es0")
-parent = NodePath("..")
-wait_time_between_movement = 2.0
+bounce_mode = 1
+time_to_reach_point = 1.0
+wait_time_between_movement = 0.5
 metadata/_custom_type_script = "uid://brjrchx1yxd8r"
 
 [node name="Marker2D" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="0"]
@@ -48,3 +49,9 @@ position = Vector2(199, -267)
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="1"]
 position = Vector2(199, -524)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="2"]
+position = Vector2(625, -524)
+
+[node name="Marker2D4" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="3"]
+position = Vector2(625, 66)

@@ -1,6 +1,7 @@
 extends Area2D
 
-@export var scene_to_transition : String
+@export_file("*.tscn") var scene_to_transition : String
+
 var is_player_in_range := false
 
 func _input(event: InputEvent) -> void:

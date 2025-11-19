@@ -1,7 +1,7 @@
-Parallax2D
-Sprite2D
 Marker2D
 MovingBodyComponent
+Parallax2D
+Sprite2D
 CollisionShape2D
 AnimatedSprite2D
 Area2D

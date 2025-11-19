@@ -8,16 +8,18 @@ extends Node
 
 ## The kinds of movement that the [member parent] can perform.[br]
 enum BOUNCE_MODES {
-	## Cycles through the points. Once it reaches the final point
-	## it goes back to the first.
+	## Cycles through the points in [member list_of_marker_nodes]. Once it reaches
+	## the final point it goes back to the first.
 	CYCLE,
-	## Ping-pongs through the points. Once it reaches the final point
-	## it traces the same points backwards until it reaches the first one again.
+	## Ping-pongs through the points in [member list_of_marker_nodes]. Once it reaches
+	## the final point it traces the same points backwards until it reaches the first
+	## one again.
 	PING_PONG 
 	}
-## The node to which the transform will be applied. By default it is the direct
-## [member Node.owner] of this node.
-@export var parent : Node2D
+
+## The node to which the transform will be applied. If this variable isn't set then on
+## ready it is set to [method Node.get_parent].
+var parent : Node2D
 ## The type of movement selected. See [enum BOUNCE_MODES].
 @export var bounce_mode : BOUNCE_MODES
 ## The time in seconds the tween takes to reach the next point.
@@ -30,9 +32,11 @@ var list_of_marker_nodes : Array[Marker2D]:
 	set(value):
 		list_of_marker_nodes = value
 		_get_configuration_warnings()
+
 ## The pointer to show the point the [member parent] is moving to. Refers to an id
 ## in [member list_of_marker_nodes]
 var curr_position_in_array : int = 0
+
 ## Shows whether the node is moving forward or backward in the list of positions.
 ## Is only used when [member bounce_mode] is set to [constant PING_PONG].
 var moving_forward := true
@@ -46,8 +50,15 @@ var moving_forward := true
 # Depends on your workflow.
 func _get_configuration_warnings() -> PackedStringArray:
 	var warnings : PackedStringArray
+	
+	# We check if the parent is of type Node2D. If not, push the proper error.
+	if not parent is Node2D:
+		warnings.append("The parent of this node needs to be of type Node2D.")
+	
+	# We check if there are enough child nodes. If not, push the proper error.
 	if list_of_marker_nodes.size() < 2:
 		warnings.append("This node needs at least 2 Marker2D nodes to function properly.")
+	
 	return warnings
 
 # Called when the node enters the scene tree for the first time.
@@ -55,15 +66,16 @@ func _ready() -> void:
 	
 	child_entered_tree.connect(_on_child_entered_tree)
 	
+	
+	if not parent:
+		parent = get_parent()
 	# Engine.is_editor_hint() returns true only if this script is currently running
 	# in the editor. This way we can run different code depending on if we are in
 	# the editor or if we are in the game. In our case if we are in the editor then
 	# we set the parent node if it hasn't been set yet. Otherwise we advance to the
 	# next point to start the movement.
 	if Engine.is_editor_hint():
-		if not parent:
-			parent = get_parent()
-		_make_positions_list()
+		_get_configuration_warnings()
 	else:
 		_make_positions_list()
 		if list_of_marker_nodes.size() >= 2 and parent:
@@ -130,11 +142,11 @@ func _advance() -> void:
 					moving_forward = true
 	_move_to_point(list_of_marker_nodes[curr_position_in_array].position)
 
-## Moves to the [member parent] by changing its local [param position] to [param next]
-## using a [Tween]. It takes [member time_to_reach_point] to get from it's current
-## position to [param next]. After the tween is finished if
-## [member wait_time_between_movement] is greater than 0.0 it creates a [SceneTreeTimer]
-## and waits for that long.
+## Moves to the [member parent] by changing its local [member Node2D.position] to
+## [param next] using a [Tween]. It takes [member time_to_reach_point] to get from
+## it's original position to [param next]. After the tween is finished if
+## [member wait_time_between_movement] is greater than [code]0.0[/code] it creates
+## a [SceneTreeTimer] and waits for that long.
 func _move_to_point(next: Vector2) -> void:
 	
 	# A Tween is a special class that can only be instanciated with code, meaning it does
@@ -174,8 +186,8 @@ func _move_to_point(next: Vector2) -> void:
 # to update the list of marker nodes so that the warning is updated. Like I said this
 # is a more advanced topic and doesn't impact the game itself, only the editor behavior.
 
-## Listens to the [signal Node.child_entered_tree] signal. When a child is added to the
-## tree its [signal Node.tree_exited] is connected to [method _on_child_exited_tree]
+## Listens to the [signal Node.child_entered_tree] signal. When a child is added to this
+## node its [signal Node.tree_exited] is connected to [method _on_child_exited_tree]
 ## and the positions list is updated by calling [method _make_positions_list].
 func _on_child_entered_tree(node: Node) -> void:
 	if not node.tree_exited.is_connected(_on_child_exited_tree):

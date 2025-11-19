@@ -17,33 +17,33 @@ texture = ExtResource("2_11hiw")
 scroll_scale = Vector2(0.5, 0.5)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D" index="0"]
-position = Vector2(-191, 503)
+position = Vector2(-191, 685.5)
 texture = ExtResource("3_n35tx")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1829.7737)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" index="1"]
-position = Vector2(484, 356)
+position = Vector2(484, 538.5)
 texture = ExtResource("3_n35tx")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1829.7737)
 
 [node name="Sprite2D3" type="Sprite2D" parent="Parallax2D" index="2"]
-position = Vector2(1123, 494)
+position = Vector2(1123, 676.5)
 texture = ExtResource("3_n35tx")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1829.7737)
 
 [node name="Sprite2D4" type="Sprite2D" parent="Parallax2D" index="3"]
-position = Vector2(1766, 338)
+position = Vector2(1766, 638.5)
 texture = ExtResource("3_n35tx")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1829.7737)
 
 [node name="Sprite2D5" type="Sprite2D" parent="Parallax2D" index="4"]
-position = Vector2(2561, 402)
+position = Vector2(2561, 728.5)
 texture = ExtResource("3_n35tx")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1829.7737)
@@ -57,12 +57,11 @@ position = Vector2(2723, 0)
 [node name="DeathPlane" parent="." index="4"]
 position = Vector2(0, 295)
 
-[node name="SimpleGreenPlatform" parent="." index="6" instance=ExtResource("2_bfr33")]
+[node name="SimpleGreenPlatform" parent="." index="5" instance=ExtResource("2_bfr33")]
 position = Vector2(1024, 0)
 
-[node name="MovingBodyComponent" type="Node" parent="SimpleGreenPlatform" index="0" node_paths=PackedStringArray("parent")]
+[node name="MovingBodyComponent" type="Node" parent="SimpleGreenPlatform" index="0"]
 script = ExtResource("3_kvnv3")
-parent = NodePath("..")
 time_to_reach_point = 1.5
 wait_time_between_movement = 1.5
 metadata/_custom_type_script = "uid://brjrchx1yxd8r"

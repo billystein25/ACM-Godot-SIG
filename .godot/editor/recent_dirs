@@ -1,3 +1,4 @@
+res://scenes/entities/player
 res://scenes/entities/enemy_floating_spike
 res://scenes/levels/level_3
 res://scenes/static/simple_green_platform
@@ -6,4 +7,3 @@ res://scenes/levels/level_1
 res://scenes/scene_transitioner
 res://scenes/static/green
 res://scenes/levels
-res://scenes/entities/player
