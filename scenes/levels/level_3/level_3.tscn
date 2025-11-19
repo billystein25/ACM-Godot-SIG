@@ -68,6 +68,8 @@ metadata/_custom_type_script = "uid://brjrchx1yxd8r"
 
 [node name="Marker2D" type="Marker2D" parent="SimpleGreenPlatform/MovingBodyComponent" index="0"]
 position = Vector2(1024, 0)
+gizmo_extents = 20.0
 
 [node name="Marker2D2" type="Marker2D" parent="SimpleGreenPlatform/MovingBodyComponent" index="1"]
 position = Vector2(2051, 0)
+gizmo_extents = 20.0

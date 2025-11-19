@@ -75,6 +75,7 @@ func _ready() -> void:
 	# we set the parent node if it hasn't been set yet. Otherwise we advance to the
 	# next point to start the movement.
 	if Engine.is_editor_hint():
+		_make_positions_list()
 		_get_configuration_warnings()
 	else:
 		_make_positions_list()

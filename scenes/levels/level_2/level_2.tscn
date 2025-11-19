@@ -46,12 +46,16 @@ metadata/_custom_type_script = "uid://brjrchx1yxd8r"
 
 [node name="Marker2D" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="0"]
 position = Vector2(199, -267)
+gizmo_extents = 20.0
 
 [node name="Marker2D2" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="1"]
 position = Vector2(199, -524)
+gizmo_extents = 20.0
 
 [node name="Marker2D3" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="2"]
 position = Vector2(625, -524)
+gizmo_extents = 20.0
 
 [node name="Marker2D4" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="3"]
 position = Vector2(625, 66)
+gizmo_extents = 20.0
