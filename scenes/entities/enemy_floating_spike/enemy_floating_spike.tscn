@@ -22,6 +22,7 @@ animations = [{
 radius = 18.110771
 
 [node name="EnemyFloatingSpike" type="Area2D" groups=["EnemyFloatingSpike"]]
+collision_layer = 16
 script = ExtResource("1_krdk7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
