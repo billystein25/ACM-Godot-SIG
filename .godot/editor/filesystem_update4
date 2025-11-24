@@ -1,6 +1,3 @@
-res://scenes/levels/root_level.tscn
-res://scenes/static/main_tileset.tres
-res://scripts/components/moving_body_component/moving_body_component.gd
-res://scenes/levels/level_3/level_3.tscn
 res://scenes/entities/player/player.tscn
+res://scenes/static/main_tileset.tres
 res://scenes/entities/player/player.gd

@@ -16,41 +16,41 @@ extends CharacterBody2D
 # In this first group we store references to the nodes we want to use, connect their
 # signals, call their functions, access their members, etc.
 @export_group("Node References")
-## The [Player]'s sprite.
+## The player's sprite.
 @export var skin: Sprite2D
-## The animation player node for the [Player].
+## The animation player node for the player.
 @export var animation_player: AnimationPlayer
-## The timer node used to implement coyote time. The [Player] will stil be able to jump
-## [member coyote_timer.wait_time] seconds after leaving the ground.
+## The timer node used to implement coyote time. The player will stil be able to jump
+## [code]coyote_timer.wait_time[/code] seconds after leaving the ground.
 @export var coyote_timer: Timer
 
 ## Used so that in [method Player._handle_jump] [member coyote_timer] is only started once.
 var just_left_floor := true
 ## The condition that allows the player to jump. Is set to [code]false[/code] after
-## [member coyote_timer.wait_time] seconds have passed. Is set to [code]true[/code]
+## [code]coyote_timer.wait_time[/code] seconds have passed. Is set to [code]true[/code]
 ## when touching the ground.
 var can_jump := false
 
 # In general @export allows a variable to be modifiable from the editor. That way we
 # can fine-tune variables more easily without having to change the code every time.
 @export_group("Movement")
-## The maximum horizontal speed of the [Player].
+## The maximum horizontal speed of the player.
 @export var max_speed : float = 10.0
-## The jump power of the [Player].
+## The jump power of the player.
 @export var jump_power : float = 10.0
-## The horizontal acceleration of the [Player].
+## The horizontal acceleration of the player.
 @export var acceleration : float = 10.0
-## The horizontal deceleration of the [Player].
+## The horizontal deceleration of the player.
 @export var deceleration : float = 10.0
 
 # implemenation of variable jump
-## The gravity exerted on the [Player] when they are holding the jump button and
+## The gravity exerted on the player when they are holding the jump button and
 ## moving upwards. Should be lower than [member neutral_upward_gravity].
 @export var active_upward_gravity : float = 10.0
-## The gravity exerted on the [Player] when they are not holding the jump button and 
+## The gravity exerted on the player when they are not holding the jump button and 
 ## moving upwards. Should be higher than [member active_upward_gravity].
 @export var neutral_upward_gravity : float = 10.0
-## The gravity exerted on the [Player] when they are falling.
+## The gravity exerted on the player when they are falling.
 @export var downward_gravity : float = 10.0
 
 # Called when the node enters the scene tree for the first time.
@@ -98,7 +98,7 @@ func _physics_process(delta: float) -> void:
 	# would have to multiply velocity with delta when using move_and_collide
 	move_and_slide()
 
-## Handles the [Player]'s jump logic. Implements coyote time and variable jump height.
+## Handles the player's jump logic. Implements coyote time and variable jump height.
 func _handle_jump(delta) -> void:
 	
 	# We check if the action PlayerJump is just pressed. Since _handle_jump is called
@@ -147,7 +147,7 @@ func _handle_jump(delta) -> void:
 		just_left_floor = true
 		coyote_timer.stop()
 
-## Handles the [Player]'s horizontal movement. Implements acceleration
+## Handles the player's horizontal movement. Implements acceleration
 func _handle_movement(delta: float) -> void:
 	
 	# Set a variable as the input direction using the Input.get_axis function.
@@ -187,7 +187,7 @@ func _handle_skin() -> void:
 		animation_player.play("jump")
 
 ## Listens to the [signal Timer.timeout] signal emited by the [member coyote_timer].
-## When [member coyote_timer].wait_time has elapsed we disable the [Player]'s
+## When [code]coyote_timer.wait_time[/code] has elapsed we disable the player's
 ## ability to jump by setting [member can_jump] to [code]false[/code].
 func _on_coyote_timer_timeout() -> void:
 	can_jump = false
