@@ -16,7 +16,22 @@ func _ready() -> void:
 	# Select the DeathPlane from the scene tree and check for other signals it has by 
 	# navigating to the Node tab at the left, next to Inspector.
 	death_plane.body_entered.connect(_on_player_entered_death_plane)
+	
+	# We can connect our custom signals the same way as the built in ones.
+	# First we access the node that holds the signal, in our case the scene_transitioner.
+	# Then we access the signal of that node that we want, in our case the
+	# transition_to_scene signal. Finally we connect that signal to our function.
+	# here we connect the signal to _on_transition_to_scene.
 	scene_transitioner.transition_to_scene.connect(_on_transition_to_scene)
+	
+	# The syntax to make a for loop in godot is as follows.
+	# for <variable1> in <variable2>
+	# <variable1> is a local variable that's defined within the for loop itself.
+	# it will iterate through all the components of <variable2> (depending on its type)
+	# in our case `get_tree().get_nodes_in_group("EnemyFloatingSpike")` returns an 
+	# Array of nodes that are in the group that we defined as EnemyFloatingSpike from
+	# the inspector. Then the enemy variable iterates through all the values of that
+	# Array.
 	for enemy in get_tree().get_nodes_in_group("EnemyFloatingSpike"):
 		enemy.hit_player.connect(_on_spike_hit_player)
 
