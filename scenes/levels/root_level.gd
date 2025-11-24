@@ -24,14 +24,21 @@ func _ready() -> void:
 	# here we connect the signal to _on_transition_to_scene.
 	scene_transitioner.transition_to_scene.connect(_on_transition_to_scene)
 	
+	# As soon as the scene loads we get every enemy via their group and connect their
+	# signal. There's nothing stopping us from connecting multiple signals to the
+	# same function.
 	# The syntax to make a for loop in godot is as follows.
 	# for <variable1> in <variable2>
 	# <variable1> is a local variable that's defined within the for loop itself.
 	# it will iterate through all the components of <variable2> (depending on its type)
 	# in our case `get_tree().get_nodes_in_group("EnemyFloatingSpike")` returns an 
 	# Array of nodes that are in the group that we defined as EnemyFloatingSpike from
-	# the inspector. Then the enemy variable iterates through all the values of that
-	# Array.
+	# the inspector. Then the enemy variable iterates through all the values of that Array.
+	# To connect all the signals we will iterate through all the enemies that are in the
+	# EnemyFloatingSpike group. Godot does some magic with hashing so using groups is
+	# much faster than checking through every child node in the scene tree and checking
+	# if it's an enemy. The signal hit_player is our custom signal we defined in the 
+	# EnemyFloatingSpike scene.
 	for enemy in get_tree().get_nodes_in_group("EnemyFloatingSpike"):
 		enemy.hit_player.connect(_on_spike_hit_player)
 
