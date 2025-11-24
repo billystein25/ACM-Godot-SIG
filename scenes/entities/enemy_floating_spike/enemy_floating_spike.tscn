@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://nsyg3mbb7632"]
+
+[ext_resource type="Script" uid="uid://dfjiax2hai277" path="res://scenes/entities/enemy_floating_spike/enemy_floating_spike.gd" id="1_krdk7"]
+[ext_resource type="Texture2D" uid="uid://wfb2w7i7bau1" path="res://scenes/entities/enemy_floating_spike/enemyFloating_1.png" id="2_i3bhn"]
+[ext_resource type="Texture2D" uid="uid://cna3mg1k3d6xj" path="res://scenes/entities/enemy_floating_spike/enemyFloating_2.png" id="3_62578"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ar4k2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_i3bhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_62578")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_adyw1"]
+radius = 18.110771
+
+[node name="EnemyFloatingSpike" type="Area2D" groups=["EnemyFloatingSpike"]]
+script = ExtResource("1_krdk7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ar4k2")
+frame_progress = 0.91540307
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_adyw1")

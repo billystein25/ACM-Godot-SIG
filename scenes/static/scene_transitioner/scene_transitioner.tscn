@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hyjhp2xxsius"]
+
+[ext_resource type="Script" uid="uid://cqxvpa7pjsv8q" path="res://scenes/static/scene_transitioner/scene_transitioner.gd" id="1_8vcn5"]
+[ext_resource type="Texture2D" uid="uid://bjfq1qnnwh8fi" path="res://scenes/static/scene_transitioner/doorGreen_top.png" id="2_xqev0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_206oj"]
+size = Vector2(64, 128)
+
+[node name="SceneTransitioner" type="Area2D"]
+script = ExtResource("1_8vcn5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_xqev0")
+offset = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -64)
+shape = SubResource("RectangleShape2D_206oj")

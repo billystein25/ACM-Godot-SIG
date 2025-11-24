@@ -1,3 +1,5 @@
-res://scenes/static/green
 res://scenes/levels
+res://scenes/entities/enemy_floating_spike
+res://scenes/static/scene_transitioner
+res://scenes/static/green
 res://scenes/entities/player

@@ -15,6 +15,10 @@ run/main_scene="uid://df7symw753uyk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+EnemyFloatingSpike=""
+
 [input]
 
 PlayerMoveLeft={
