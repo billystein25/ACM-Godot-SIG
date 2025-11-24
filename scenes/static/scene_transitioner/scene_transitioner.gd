@@ -1,6 +1,9 @@
 class_name SceneTransitioner
 extends Area2D
 
+# Using the @export_file annotation we export a path to a file. We also specify 
+# with `*.tscn` that the file should end with `.tscn`. So it must be a scene file.
+# We store that path to a string that we will then use to transition to another level.
 @export_file("*.tscn") var scene_to_transition : String
 
 # We define our own signal like this. Use the `signal` keyword followed by the name
