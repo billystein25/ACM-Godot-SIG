@@ -15,12 +15,6 @@ run/main_scene="uid://df7symw753uyk"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
-[gui]
-
-timers/tooltip_delay_sec=0.01
-timers/tooltip_delay_sec.editor_hint=0.01
-timers/text_edit_idle_detect_sec=1.0
-
 [input]
 
 PlayerMoveLeft={
