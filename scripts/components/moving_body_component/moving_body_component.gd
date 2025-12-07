@@ -61,11 +61,22 @@ func _get_configuration_warnings() -> PackedStringArray:
 	
 	return warnings
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
+# The ready function can only be overwritten once. Thus if we set up the node in
+# the _ready function and we extended this class then the setup we do on ready
+# would be lost. We can work around this by using the init function which is always
+# called per class. However init is called before the node is ready and thus we
+# cannot check for member variables that depend on the scene being ready, such as 
+# our parent variable. We can work around this by connecting the ready signal
+# -which is emitted when the node is ready- to our custom function _on_ready and
+# do all that logic there.
+func _init() -> void:
 	child_entered_tree.connect(_on_child_entered_tree)
-	
+	ready.connect(_on_ready)
+
+## Custom function that listens to the [signal Node.ready] signal and sets up the node.
+## We use this to work around the fact that the [method Node._ready] function can only be
+## overwritten once per extended class.
+func _on_ready() -> void:
 	
 	if not parent:
 		parent = get_parent()

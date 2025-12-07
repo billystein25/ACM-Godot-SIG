@@ -1,7 +1,2 @@
-res://scenes/scene_transitioner/scene_transitioner.tscn
-res://scenes/static/main_tileset.tres
-res://scenes/scene_transitioner/scene_transitioner.gd
-res://scenes/levels/root_level.tscn
-res://scenes/levels/root_level.gd
-res://scenes/entities/enemy_floating_spike/enemy_floating_spike.tscn
 res://scenes/levels/level_3/level_3.tscn
+res://scenes/static/main_tileset.tres
