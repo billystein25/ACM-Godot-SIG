@@ -19,5 +19,7 @@ Every script is writen in a way so that anyone can learn the basics of Godot by 
 
 All neccessary adjustments like and input map and other project settings have already been made.<br>
 
+Assets in these projects come from Kenney's 2D Platformer Asset pack<br>
+
 ## Installation Instructions
 Simply clone the branch of your choice and import the project to Godot by initializing the root folder.
