@@ -19,7 +19,10 @@ enum BOUNCE_MODES {
 
 ## The node to which the transform will be applied. If this variable isn't set then on
 ## ready it is set to [method Node.get_parent].
-var parent : Node2D
+var parent : Node2D:
+	set(value):
+		parent = value
+		_get_configuration_warnings()
 ## The type of movement selected. See [enum BOUNCE_MODES].
 @export var bounce_mode : BOUNCE_MODES
 ## The time in seconds the tween takes to reach the next point.
@@ -87,7 +90,6 @@ func _on_ready() -> void:
 	# next point to start the movement.
 	if Engine.is_editor_hint():
 		_make_positions_list()
-		_get_configuration_warnings()
 	else:
 		_make_positions_list()
 		if list_of_marker_nodes.size() >= 2 and parent:
@@ -155,11 +157,11 @@ func _advance() -> void:
 	_move_to_point(list_of_marker_nodes[curr_position_in_array].position)
 
 ## Moves to the [member parent] by changing its local [member Node2D.position] to
-## [param next] using a [Tween]. It takes [member time_to_reach_point] to get from
-## it's original position to [param next]. After the tween is finished if
+## [param next_position] using a [Tween]. It takes [member time_to_reach_point] to get from
+## it's original position to [param next_position]. After the tween is finished if
 ## [member wait_time_between_movement] is greater than [code]0.0[/code] it creates
 ## a [SceneTreeTimer] and waits for that long.
-func _move_to_point(next: Vector2) -> void:
+func _move_to_point(next_position: Vector2) -> void:
 	
 	# A Tween is a special class that can only be instanciated with code, meaning it does
 	# not exist to be added in the scene tree like any other node (though it used to be
@@ -178,7 +180,7 @@ func _move_to_point(next: Vector2) -> void:
 	# 2: The property of the Object that we want to interpolate to.
 	# 3: The new value of the property.
 	# 4: The real time in seconds it takes to interpolate to the new value.
-	tween.tween_property(parent, "position", next, time_to_reach_point)
+	tween.tween_property(parent, "position", next_position, time_to_reach_point)
 	# The await keyword "waits" until the following function is finished or the signal
 	# is emitted. In our case we wait until the tween finishes, which we know from the 
 	# finished signal, and then we continue to the code bellow.
