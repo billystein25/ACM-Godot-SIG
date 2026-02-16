@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://df7symw753uyk"]
+[gd_scene format=3 uid="uid://df7symw753uyk"]
 
 [ext_resource type="TileSet" uid="uid://dsjxawws8b57t" path="res://scenes/static/main_tileset.tres" id="1_5bocx"]
 [ext_resource type="Script" uid="uid://b4vb18lvx8odx" path="res://scenes/levels/root_level.gd" id="1_bjr41"]
@@ -7,24 +7,24 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ujr3r"]
 
-[node name="RootLevel" type="Node2D"]
+[node name="RootLevel" type="Node2D" unique_id=175138607]
 script = ExtResource("1_bjr41")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="."]
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=989532504]
 tile_set = ExtResource("1_5bocx")
 
-[node name="SceneTransitioner" parent="." instance=ExtResource("7_008bx")]
+[node name="SceneTransitioner" parent="." unique_id=1095883872 instance=ExtResource("7_008bx")]
 
-[node name="DeathPlane" type="Area2D" parent="."]
+[node name="DeathPlane" type="Area2D" parent="." unique_id=1538619325]
 position = Vector2(0, 150)
 collision_layer = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathPlane" unique_id=1963318779]
 shape = SubResource("WorldBoundaryShape2D_ujr3r")
 
-[node name="Player" parent="." instance=ExtResource("2_ujr3r")]
+[node name="Player" parent="." unique_id=96814780 instance=ExtResource("2_ujr3r")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1149661644]
 physics_interpolation_mode = 2
 offset = Vector2(50, -100)
 position_smoothing_enabled = true

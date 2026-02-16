@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=4 uid="uid://bvisebshs36mq"]
+[gd_scene format=4 uid="uid://bvisebshs36mq"]
 
 [ext_resource type="TileSet" uid="uid://dsjxawws8b57t" path="res://scenes/static/main_tileset.tres" id="1_83aye"]
 
-[node name="SimpleGreenPlatform" type="TileMapLayer"]
+[node name="SimpleGreenPlatform" type="TileMapLayer" unique_id=537169332]
 tile_map_data = PackedByteArray("AAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAD+/wEAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAIAAAACAAAAAAACAAAAAAACAAEAAAACAAIAAAA=")
 tile_set = ExtResource("1_83aye")
 use_kinematic_bodies = true

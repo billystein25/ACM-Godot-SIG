@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="ACMProjects"
+config/tags=PackedStringArray("2d", "3d", "game")
 run/main_scene="uid://6ynyujr3dhsf"
-config/features=PackedStringArray("4.5", "Forward Plus")
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [global_group]

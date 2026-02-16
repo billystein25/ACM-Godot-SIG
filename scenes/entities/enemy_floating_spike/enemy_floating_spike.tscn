@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://nsyg3mbb7632"]
+[gd_scene format=3 uid="uid://nsyg3mbb7632"]
 
 [ext_resource type="Texture2D" uid="uid://wfb2w7i7bau1" path="res://scenes/entities/enemy_floating_spike/enemyFloating_1.png" id="1_f8q0t"]
 [ext_resource type="Script" uid="uid://dfjiax2hai277" path="res://scenes/entities/enemy_floating_spike/enemy_floating_spike.gd" id="1_i3bhn"]
@@ -21,14 +21,14 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ar4k2"]
 radius = 20.024984
 
-[node name="EnemyFloatingSpike" type="Area2D" groups=["EnemyFloatingSpike"]]
+[node name="EnemyFloatingSpike" type="Area2D" unique_id=810125962 groups=["EnemyFloatingSpike"]]
 collision_layer = 16
 script = ExtResource("1_i3bhn")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1659775646]
 sprite_frames = SubResource("SpriteFrames_62578")
 autoplay = "default"
 frame_progress = 0.6419431
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1312734057]
 shape = SubResource("CircleShape2D_ar4k2")

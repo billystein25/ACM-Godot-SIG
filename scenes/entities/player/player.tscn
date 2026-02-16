@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://opxhrd57rax1"]
+[gd_scene format=3 uid="uid://opxhrd57rax1"]
 
 [ext_resource type="Texture2D" uid="uid://dbm8dcrs37van" path="res://scenes/entities/player/0_spritesheet_size_512.png" id="1_1hmtu"]
 [ext_resource type="Script" uid="uid://bubb7hlvrd6t5" path="res://scenes/entities/player/player.gd" id="1_635qg"]
@@ -81,7 +81,7 @@ _data = {
 &"run": SubResource("Animation_635qg")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("skin", "animation_player", "coyote_timer")]
+[node name="Player" type="CharacterBody2D" unique_id=1473324524 node_paths=PackedStringArray("skin", "animation_player", "coyote_timer")]
 collision_mask = 2
 floor_max_angle = 0.80285144
 floor_snap_length = 20.0
@@ -97,23 +97,21 @@ active_upward_gravity = 1100.0
 neutral_upward_gravity = 2500.0
 downward_gravity = 3500.0
 
-[node name="PlayerSprite" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=840292409]
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("1_1hmtu")
 offset = Vector2(19.545, -169.645)
 hframes = 10
 vframes = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=185955349]
 position = Vector2(0, -33)
 shape = SubResource("CapsuleShape2D_635qg")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8akj5")
-}
-autoplay = "idle"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1307533790]
+libraries/ = SubResource("AnimationLibrary_8akj5")
+autoplay = &"idle"
 
-[node name="CoyoteTimer" type="Timer" parent="."]
+[node name="CoyoteTimer" type="Timer" parent="." unique_id=666264885]
 wait_time = 0.2
 one_shot = true

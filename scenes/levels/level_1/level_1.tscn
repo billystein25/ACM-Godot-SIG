@@ -1,65 +1,65 @@
-[gd_scene load_steps=5 format=4 uid="uid://6ynyujr3dhsf"]
+[gd_scene format=4 uid="uid://6ynyujr3dhsf"]
 
 [ext_resource type="PackedScene" uid="uid://df7symw753uyk" path="res://scenes/levels/root_level.tscn" id="1_7uxs1"]
 [ext_resource type="Texture2D" uid="uid://d0hvehb6sqjei" path="res://assets/backgrounds/set1_background.png" id="2_3lh42"]
 [ext_resource type="Texture2D" uid="uid://cs08u3xbvecjs" path="res://assets/backgrounds/set2_tiles.png" id="3_vmhy7"]
 [ext_resource type="Texture2D" uid="uid://d2gwimfns76or" path="res://assets/backgrounds/set4_hills.png" id="4_58uyj"]
 
-[node name="Level1" instance=ExtResource("1_7uxs1")]
+[node name="Level1" unique_id=1791728840 instance=ExtResource("1_7uxs1")]
 
-[node name="BeigeBackground" type="Sprite2D" parent="." index="0"]
+[node name="BeigeBackground" type="Sprite2D" parent="." index="0" unique_id=1583465736]
 z_index = -1
 position = Vector2(1003.9999, -93.99999)
 scale = Vector2(12.955326, 9.462108)
 texture = ExtResource("2_3lh42")
 
-[node name="FarBackPurpleShapes" type="Parallax2D" parent="." index="1"]
+[node name="FarBackPurpleShapes" type="Parallax2D" parent="." index="1" unique_id=1975702501]
 scroll_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D" type="Sprite2D" parent="FarBackPurpleShapes" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="FarBackPurpleShapes" index="0" unique_id=599608092]
 texture_repeat = 3
 texture = ExtResource("3_vmhy7")
 region_enabled = true
 region_rect = Rect2(-2770.7173, -1284.9126, 5859.6563, 3007.1943)
 
-[node name="BackBrownShapes" type="Parallax2D" parent="." index="2"]
+[node name="BackBrownShapes" type="Parallax2D" parent="." index="2" unique_id=30429839]
 scroll_scale = Vector2(0.8, 0.8)
 
-[node name="Sprite2D" type="Sprite2D" parent="BackBrownShapes" index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="BackBrownShapes" index="0" unique_id=1106267825]
 position = Vector2(-521, 1587.5)
 texture = ExtResource("4_58uyj")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 3813.4224)
 
-[node name="Sprite2D2" type="Sprite2D" parent="BackBrownShapes" index="1"]
+[node name="Sprite2D2" type="Sprite2D" parent="BackBrownShapes" index="1" unique_id=113236042]
 position = Vector2(122, 1471.5)
 texture = ExtResource("4_58uyj")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 3813.4224)
 
-[node name="Sprite2D4" type="Sprite2D" parent="BackBrownShapes" index="2"]
+[node name="Sprite2D4" type="Sprite2D" parent="BackBrownShapes" index="2" unique_id=1793888537]
 position = Vector2(1503, 1333.5)
 texture = ExtResource("4_58uyj")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 3813.4224)
 
-[node name="Sprite2D3" type="Sprite2D" parent="BackBrownShapes" index="3"]
+[node name="Sprite2D3" type="Sprite2D" parent="BackBrownShapes" index="3" unique_id=569734798]
 position = Vector2(838, 1637.5)
 texture = ExtResource("4_58uyj")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 3813.4224)
 
-[node name="Sprite2D5" type="Sprite2D" parent="BackBrownShapes" index="4"]
+[node name="Sprite2D5" type="Sprite2D" parent="BackBrownShapes" index="4" unique_id=1698254761]
 position = Vector2(2103, 1502.5)
 texture = ExtResource("4_58uyj")
 flip_h = true
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 3813.4224)
 
-[node name="TileMapLayer" parent="." index="3"]
+[node name="TileMapLayer" parent="." index="3" unique_id=989532504]
 tile_map_data = PackedByteArray("AAADAAkAAAABAAIAAAADAAgAAAABAAEAAAADAAcAAAABAAEAAAADAAYAAAABAAEAAAADAAUAAAABAAEAAAADAAQAAAABAAEAAAADAAMAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAAAAAACAAkAAAABAAIAAAACAAgAAAABAAEAAAACAAcAAAABAAEAAAACAAYAAAABAAEAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAACAAIAAAABAAEAAAACAAEAAAABAAEAAAACAAAAAAABAAAAAAABAAkAAAABAAIAAAABAAgAAAABAAEAAAABAAcAAAABAAEAAAABAAYAAAABAAEAAAABAAUAAAABAAEAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAEAAAABAAEAAAABAAAAAAABAAAAAAAAAAkAAAABAAIAAAAAAAgAAAABAAEAAAAAAAcAAAABAAEAAAAAAAYAAAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAEAAAAAAAMAAAABAAEAAAAAAAIAAAABAAEAAAAAAAEAAAABAAEAAAAAAAAAAAABAAAAAAD//wkAAAABAAIAAAD//wgAAAABAAEAAAD//wcAAAABAAEAAAD//wYAAAABAAEAAAD//wUAAAABAAEAAAD//wQAAAABAAEAAAD//wMAAAABAAEAAAD//wIAAAABAAEAAAD//wEAAAABAAEAAAD//wAAAAABAAAAAAD+/wkAAAABAAIAAAD+/wgAAAABAAEAAAD+/wcAAAABAAEAAAD+/wYAAAABAAEAAAD+/wUAAAABAAEAAAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAEAAAD+/wAAAAABAAAAAAD9/wkAAAABAAIAAAD9/wgAAAABAAEAAAD9/wcAAAABAAEAAAD9/wYAAAABAAEAAAD9/wUAAAABAAEAAAD9/wQAAAABAAEAAAD9/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAEAAAD9/wAAAAABAAAAAAD8/wkAAAABAAIAAAD8/wgAAAABAAEAAAD8/wcAAAABAAEAAAD8/wYAAAABAAEAAAD8/wUAAAABAAEAAAD8/wQAAAABAAEAAAD8/wMAAAABAAEAAAD8/wIAAAABAAEAAAD8/wEAAAABAAEAAAD8/wAAAAABAAAAAAD7/wkAAAAAAAIAAAD7/wgAAAAAAAEAAAD7/wcAAAAAAAEAAAD7/wYAAAAAAAEAAAD7/wUAAAAAAAEAAAD7/wQAAAAAAAEAAAD7/wMAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wEAAAAAAAEAAAD7/wAAAAAAAAAAAAAEAAkAAAACAAIAAAAEAAgAAAACAAEAAAAEAAcAAAACAAEAAAAEAAYAAAACAAEAAAAEAAUAAAACAAEAAAAEAAQAAAACAAEAAAAEAAMAAAACAAEAAAAEAAIAAAACAAEAAAAEAAEAAAACAAEAAAAEAAAAAAACAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAEAAAAHAAIAAAAAAAEAAAAHAAMAAAAAAAEAAAAHAAQAAAAAAAEAAAAHAAUAAAAAAAEAAAAHAAYAAAAAAAEAAAAHAAcAAAAAAAEAAAAHAAgAAAAAAAIAAAAIAAgAAAABAAIAAAAJAAgAAAABAAIAAAAKAAgAAAACAAIAAAAKAAcAAAACAAEAAAAKAAYAAAACAAEAAAAKAAUAAAACAAEAAAAKAAQAAAACAAEAAAAJAAQAAAABAAEAAAAJAAMAAAABAAEAAAAJAAIAAAABAAEAAAAJAAEAAAABAAEAAAAJAAAAAAABAAAAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAKAAMAAAACAAEAAAAKAAIAAAACAAEAAAAKAAEAAAACAAEAAAAKAAAAAAACAAAAAAAIAAAAAAABAAAAAAAIAAEAAAABAAEAAAAIAAIAAAABAAEAAAAIAAMAAAABAAEAAAAIAAQAAAABAAEAAAAIAAUAAAABAAEAAAAIAAYAAAABAAEAAAAIAAcAAAABAAEAAAAJAAcAAAABAAEAAAANAAAAAAAAAAAAAAAOAAAAAAABAAAAAAAPAAAAAAABAAAAAAAQAAAAAAABAAAAAAARAAAAAAABAAAAAAASAAAAAAACAAAAAAASAAEAAAACAAIAAAARAAEAAAABAAIAAAAQAAEAAAABAAIAAAAPAAEAAAABAAIAAAAOAAEAAAABAAIAAAANAAEAAAAAAAIAAAAcAP//AAAAAAMAAAAdAP//AAABAAMAAAAeAP//AAABAAMAAAAfAP//AAABAAMAAAAgAP//AAABAAMAAAAhAP//AAABAAMAAAAiAP//AAACAAMAAAAWAP//AAAAAAAAAAAWAAAAAAAAAAIAAAAXAAAAAAABAAIAAAAYAAAAAAACAAIAAAAYAP//AAACAAAAAAAXAP//AAABAAAAAAA=")
 
-[node name="SceneTransitioner" parent="." index="4"]
+[node name="SceneTransitioner" parent="." index="4" unique_id=1095883872]
 position = Vector2(2051, -63)
 scene_to_transition = "uid://dyrp7iqp112wo"

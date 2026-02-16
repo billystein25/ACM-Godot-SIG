@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dyrp7iqp112wo"]
+[gd_scene format=4 uid="uid://dyrp7iqp112wo"]
 
 [ext_resource type="PackedScene" uid="uid://df7symw753uyk" path="res://scenes/levels/root_level.tscn" id="1_f1k8i"]
 [ext_resource type="Texture2D" uid="uid://d0hvehb6sqjei" path="res://assets/backgrounds/set1_background.png" id="2_lp8so"]
@@ -6,56 +6,56 @@
 [ext_resource type="PackedScene" uid="uid://nsyg3mbb7632" path="res://scenes/entities/enemy_floating_spike/enemy_floating_spike.tscn" id="4_hopjm"]
 [ext_resource type="Script" uid="uid://brjrchx1yxd8r" path="res://scripts/components/moving_body_component/moving_body_component.gd" id="5_68es0"]
 
-[node name="Level2" instance=ExtResource("1_f1k8i")]
+[node name="Level2" unique_id=506004441 instance=ExtResource("1_f1k8i")]
 
-[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" type="Sprite2D" parent="." index="0" unique_id=651241641]
 scale = Vector2(7.072333, 4.4738874)
 texture = ExtResource("2_lp8so")
 
-[node name="Parallax2D" type="Parallax2D" parent="." index="1"]
+[node name="Parallax2D" type="Parallax2D" parent="." index="1" unique_id=1130422941]
 scroll_scale = Vector2(0.5, 0.5)
 
-[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" index="0"]
+[node name="Sprite2D2" type="Sprite2D" parent="Parallax2D" index="0" unique_id=363990913]
 position = Vector2(496, 8)
 texture = ExtResource("3_83l3i")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1369.4447)
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" index="1"]
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" index="1" unique_id=1389529574]
 position = Vector2(-245, 241)
 texture = ExtResource("3_83l3i")
 region_enabled = true
 region_rect = Rect2(0, 0, 640, 1369.4447)
 
-[node name="TileMapLayer" parent="." index="2"]
+[node name="TileMapLayer" parent="." index="2" unique_id=989532504]
 tile_map_data = PackedByteArray("AAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD+/wIAAAABAAEAAAD+/wEAAAABAAEAAAD+/wAAAAABAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAABAAQAAAABAAEAAAAAAAQAAAABAAEAAAD//wQAAAABAAEAAAD//wEAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAD//wMAAAABAAEAAAD//wIAAAABAAEAAAACAAAAAAACAAAAAAACAAEAAAACAAEAAAACAAIAAAACAAEAAAACAAMAAAACAAEAAAACAAQAAAACAAEAAAAIAAQAAAACAAIAAAAIAAMAAAACAAEAAAAIAAIAAAACAAEAAAAIAAEAAAACAAEAAAAIAAAAAAACAAAAAAAHAAQAAAABAAIAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAHAAEAAAABAAEAAAAHAAAAAAABAAAAAAAGAAQAAAABAAIAAAAGAAMAAAABAAEAAAAGAAIAAAABAAEAAAAGAAEAAAABAAEAAAAGAAAAAAABAAAAAAAFAAQAAAAAAAIAAAAFAAMAAAAAAAEAAAAFAAIAAAAAAAEAAAAFAAEAAAAAAAEAAAAFAAAAAAAAAAAAAAACAAkAAAACAAIAAAACAAgAAAACAAEAAAACAAcAAAACAAEAAAACAAYAAAACAAEAAAACAAUAAAACAAEAAAABAAkAAAABAAIAAAABAAgAAAABAAEAAAABAAcAAAABAAEAAAABAAYAAAABAAEAAAABAAUAAAABAAEAAAAAAAkAAAABAAIAAAAAAAgAAAABAAEAAAAAAAcAAAABAAEAAAAAAAYAAAABAAEAAAAAAAUAAAABAAEAAAD//wkAAAABAAIAAAD//wgAAAABAAEAAAD//wcAAAABAAEAAAD//wYAAAABAAEAAAD//wUAAAABAAEAAAD+/wkAAAABAAIAAAD+/wgAAAABAAEAAAD+/wcAAAABAAEAAAD+/wYAAAABAAEAAAD+/wUAAAABAAEAAAD9/wkAAAAAAAIAAAD9/wgAAAAAAAEAAAD9/wcAAAAAAAEAAAD9/wYAAAAAAAEAAAD9/wUAAAAAAAEAAAD9/wQAAAAAAAEAAAD9/wMAAAAAAAEAAAD9/wIAAAAAAAEAAAD9/wEAAAAAAAEAAAD9/wAAAAAAAAAAAAALAP7/AAAAAAAAAAAMAP7/AAABAAAAAAANAP7/AAABAAAAAAAOAP7/AAABAAAAAAAPAP7/AAACAAAAAAAPAP//AAACAAIAAAAOAP//AAABAAIAAAANAP//AAABAAIAAAAMAP//AAABAAIAAAALAP//AAAAAAIAAAAIAPz/AAACAAMAAAAHAPz/AAABAAMAAAAGAPz/AAABAAMAAAAFAPz/AAABAAMAAAAEAPz/AAAAAAMAAAABAPr/AAACAAMAAAAAAPr/AAABAAMAAAD///r/AAABAAMAAAD+//r/AAABAAMAAAD9//r/AAABAAMAAAD8//r/AAAAAAMAAAA=")
 
-[node name="SceneTransitioner" parent="." index="3"]
+[node name="SceneTransitioner" parent="." index="3" unique_id=1095883872]
 position = Vector2(-125, -384)
 scene_to_transition = "uid://cqomxleonqqti"
 
-[node name="EnemyFloatingSpike" parent="." index="5" instance=ExtResource("4_hopjm")]
+[node name="EnemyFloatingSpike" parent="." index="5" unique_id=926969147 instance=ExtResource("4_hopjm")]
 position = Vector2(199, -267)
 
-[node name="MovingBodyComponent" type="Node" parent="EnemyFloatingSpike" index="2"]
+[node name="MovingBodyComponent" type="Node" parent="EnemyFloatingSpike" index="2" unique_id=1319203195]
 script = ExtResource("5_68es0")
 bounce_mode = 1
 time_to_reach_point = 1.0
 wait_time_between_movement = 0.5
 metadata/_custom_type_script = "uid://brjrchx1yxd8r"
 
-[node name="Marker2D" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="0"]
+[node name="Marker2D" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="0" unique_id=395444760]
 position = Vector2(199, -267)
 gizmo_extents = 20.0
 
-[node name="Marker2D2" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="1"]
+[node name="Marker2D2" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="1" unique_id=1060939758]
 position = Vector2(199, -524)
 gizmo_extents = 20.0
 
-[node name="Marker2D3" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="2"]
+[node name="Marker2D3" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="2" unique_id=339844126]
 position = Vector2(625, -524)
 gizmo_extents = 20.0
 
-[node name="Marker2D4" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="3"]
+[node name="Marker2D4" type="Marker2D" parent="EnemyFloatingSpike/MovingBodyComponent" index="3" unique_id=169265856]
 position = Vector2(625, 66)
 gizmo_extents = 20.0
