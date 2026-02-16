@@ -7,7 +7,7 @@
 
 ## The Player Character Controller. Implements variable jump, coyote time, and
 ## horizontal acceleration and deceleration
-class_name Player
+class_name Player2D
 # We extend CharacyerBody2D which gives us build in functions and methods such as
 # collision detection and movement functions.
 extends CharacterBody2D
@@ -24,7 +24,7 @@ extends CharacterBody2D
 ## [code]coyote_timer.wait_time[/code] seconds after leaving the ground.
 @export var coyote_timer: Timer
 
-## Used so that in [method Player._handle_jump] [member coyote_timer] is only started once.
+## Used so that in [method Player2D._handle_jump] [member coyote_timer] is only started once.
 var just_left_floor := true
 ## The condition that allows the player to jump. Is set to [code]false[/code] after
 ## [code]coyote_timer.wait_time[/code] seconds have passed. Is set to [code]true[/code]

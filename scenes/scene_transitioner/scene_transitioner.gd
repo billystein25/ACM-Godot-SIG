@@ -31,14 +31,14 @@ func _ready() -> void:
 	body_exited.connect(_on_body_exited)
 
 func _on_body_entered(body: Node2D) -> void:
-	if not body is Player:
+	if not body is Player2D:
 		return
 	
 	is_player_in_range = true
 
 
 func _on_body_exited(body: Node2D) -> void:
-	if not body is Player:
+	if not body is Player2D:
 		return
 	
 	is_player_in_range = false
