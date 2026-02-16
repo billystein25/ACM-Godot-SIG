@@ -12,25 +12,6 @@ class_name Player2D
 # collision detection and movement functions.
 extends CharacterBody2D
 
-# With @export_group we can create groups in the editor to better organise our variables
-# In this first group we store references to the nodes we want to use, connect their
-# signals, call their functions, access their members, etc.
-@export_group("Node References")
-## The player's sprite.
-@export var skin: Sprite2D
-## The animation player node for the player.
-@export var animation_player: AnimationPlayer
-## The timer node used to implement coyote time. The player will stil be able to jump
-## [code]coyote_timer.wait_time[/code] seconds after leaving the ground.
-@export var coyote_timer: Timer
-
-## Used so that in [method Player2D._handle_jump] [member coyote_timer] is only started once.
-var just_left_floor := true
-## The condition that allows the player to jump. Is set to [code]false[/code] after
-## [code]coyote_timer.wait_time[/code] seconds have passed. Is set to [code]true[/code]
-## when touching the ground.
-var can_jump := false
-
 # In general @export allows a variable to be modifiable from the editor. That way we
 # can fine-tune variables more easily without having to change the code every time.
 @export_group("Movement")
@@ -52,6 +33,27 @@ var can_jump := false
 @export var neutral_upward_gravity : float = 10.0
 ## The gravity exerted on the player when they are falling.
 @export var downward_gravity : float = 10.0
+
+
+# With @export_group we can create groups in the editor to better organise our variables
+# In this first group we store references to the nodes we want to use, connect their
+# signals, call their functions, access their members, etc.
+@export_group("Node References")
+## The player's sprite.
+@export var skin: Sprite2D
+## The animation player node for the player.
+@export var animation_player: AnimationPlayer
+## The timer node used to implement coyote time. The player will stil be able to jump
+## [code]coyote_timer.wait_time[/code] seconds after leaving the ground.
+@export var coyote_timer: Timer
+
+## Used so that in [method Player2D._handle_jump] [member coyote_timer] is only started once.
+var just_left_floor := true
+## The condition that allows the player to jump. Is set to [code]false[/code] after
+## [code]coyote_timer.wait_time[/code] seconds have passed. Is set to [code]true[/code]
+## when touching the ground.
+var can_jump := false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
