@@ -5,8 +5,8 @@
 # variable/member, function/method, signal, or Class Godot will take you to the
 # respective member's documentation.
 
-## The Player Character Controller. Implements variable jump, coyote time, and
-## horizontal acceleration and deceleration
+## The 2D Player Character Controller. Implements variable jump, coyote time, and
+## horizontal acceleration and deceleration.
 class_name Player2D
 # We extend CharacyerBody2D which gives us build in functions and methods such as
 # collision detection and movement functions.
