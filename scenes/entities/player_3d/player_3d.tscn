@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://vgarcmmyld0u"]
+
+[ext_resource type="Script" uid="uid://d00xho5d3bgjh" path="res://scenes/entities/player_3d/player_3d.gd" id="1_gumr5"]
+[ext_resource type="PackedScene" uid="uid://dwkd1lk5plgkv" path="res://scenes/entities/player_3d/camera_controller_3d/camera_controller_3d.tscn" id="2_yeoq5"]
+[ext_resource type="Script" uid="uid://bnqowihn7xwcy" path="res://scripts/components/health_component/health_component.gd" id="3_l4amk"]
+[ext_resource type="Script" uid="uid://dxebmt2x2ryjf" path="res://scripts/components/hurtbox_3d/hurtbox_3d.gd" id="4_6k74e"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_l4amk"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yeoq5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_yeoq5"]
+size = Vector3(1, 0.2, 0.2)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_varum"]
+radius = 0.35302734
+height = 1.7314453
+
+[node name="Player3D" type="CharacterBody3D" unique_id=1518928345 node_paths=PackedStringArray("skin", "camera_controller")]
+script = ExtResource("1_gumr5")
+max_speed = 8.0
+acceleration = 8.0
+deceleration = 16.0
+jump_force = 9.0
+upward_gravity = -15.0
+downward_gravity = -26.0
+raycast_collision_mask = 68
+skin = NodePath("Skin")
+camera_controller = NodePath("CameraController")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=689078275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_l4amk")
+
+[node name="Skin" type="Node3D" parent="." unique_id=14991061]
+
+[node name="Body" type="MeshInstance3D" parent="Skin" unique_id=780323949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_yeoq5")
+
+[node name="Visor" type="MeshInstance3D" parent="Skin" unique_id=1386675485]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5158089, -0.5026915)
+mesh = SubResource("BoxMesh_yeoq5")
+
+[node name="CameraController" parent="." unique_id=82158827 instance=ExtResource("2_yeoq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1073299931]
+script = ExtResource("3_l4amk")
+max_health = 150.0
+metadata/_custom_type_script = "uid://bnqowihn7xwcy"
+
+[node name="Hurtbox3D" type="Area3D" parent="." unique_id=1773420079 node_paths=PackedStringArray("health_component")]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("4_6k74e")
+health_component = NodePath("../HealthComponent")
+metadata/_custom_type_script = "uid://dxebmt2x2ryjf"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hurtbox3D" unique_id=1111925108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.86572266, 0)
+shape = SubResource("CapsuleShape3D_varum")

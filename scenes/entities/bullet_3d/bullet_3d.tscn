@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://ng6cpextk2wi"]
+
+[ext_resource type="Script" uid="uid://ddctjmx7i2qor" path="res://scenes/entities/bullet_3d/bullet_3d.gd" id="1_0vrmx"]
+[ext_resource type="Script" uid="uid://w26kdpov8844" path="res://scripts/components/handled_hitbox_3d/handled_hitbox_3d.gd" id="2_cubkb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_3uwg8"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5fs0g"]
+albedo_color = Color(0.81640625, 0.11161804, 0.11161804, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bm3w3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qd8ui"]
+albedo_color = Color(0.12854004, 0.55302715, 0.609375, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_lu8hm"]
+material = SubResource("StandardMaterial3D_qd8ui")
+
+[node name="Bullet3D" type="Node3D" unique_id=439403177]
+script = ExtResource("1_0vrmx")
+
+[node name="Mesh" type="MeshInstance3D" parent="." unique_id=755216947]
+mesh = SubResource("SphereMesh_3uwg8")
+surface_material_override/0 = SubResource("ORMMaterial3D_5fs0g")
+
+[node name="HandledHitbox3D" type="Area3D" parent="." unique_id=953690752]
+collision_layer = 32
+collision_mask = 16
+script = ExtResource("2_cubkb")
+attack = 10.0
+metadata/_custom_type_script = "uid://w26kdpov8844"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandledHitbox3D" unique_id=117795963]
+shape = SubResource("SphereShape3D_bm3w3")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=718827737]
+mesh = SubResource("QuadMesh_lu8hm")
+direction = Vector3(0, 0, 1)
+spread = 20.0
+gravity = Vector3(0, 0, 6)
+initial_velocity_max = 2.0
