@@ -16,9 +16,14 @@ extends CharacterBody3D
 @export var upward_gravity: float = -9.8
 ## The gravity that is applied to this body while it is moving in the negative Y axis.
 @export var downward_gravity: float = -9.8
+
 @export_group("Attack")
+## The 3D physics raycast collision mask when the player "shoots".
 @export_flags_3d_physics var raycast_collision_mask: int = 1
+
 @export_group("Visuals")
+## The rate at which the [member skin] will rotate towards the moving direction
+## according to [member CharacterBody3D.velocity].
 @export var skin_rotation_rate: float = 1.0
 
 @export_group("Node References")
