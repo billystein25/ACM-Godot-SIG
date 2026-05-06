@@ -8,7 +8,7 @@ extends Area3D
 
 
 ## The data that will be passed to the [Hurtbox3D] that was attacked.
-@export var attack: float
+@export var attack: Attack
 
 
 # If [code]True[/code] then this hitbox is active and therefore it will listen for [Hurtbox3D]

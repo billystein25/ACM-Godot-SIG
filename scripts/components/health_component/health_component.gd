@@ -130,6 +130,7 @@ func get_damaged(damage: float, overide_dead := false) -> void:
 		current_health -= damage
 	if is_hits_tracked():
 		current_hits -= 1
+	print(current_health)
 
 
 ## Heal the body by [param damage] health points and increase [member current_hits] by

@@ -13,6 +13,6 @@ extends Area3D
 
 
 ## This method is called when [Hitbox3D]s collide with this node
-func get_hit(attack: float) -> void:
+func get_hit(attack: Attack) -> void:
 	if not health_component: return
-	health_component.get_damaged(attack)
+	health_component.get_damaged(attack.damage)
