@@ -25,6 +25,7 @@ jump_force = 9.0
 upward_gravity = -15.0
 downward_gravity = -26.0
 raycast_collision_mask = 68
+skin_rotation_rate = 7.0
 skin = NodePath("Skin")
 camera_controller = NodePath("CameraController")
 

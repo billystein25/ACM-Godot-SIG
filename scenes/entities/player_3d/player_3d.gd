@@ -18,6 +18,9 @@ extends CharacterBody3D
 @export var downward_gravity: float = -9.8
 @export_group("Attack")
 @export_flags_3d_physics var raycast_collision_mask: int = 1
+@export_group("Visuals")
+@export var skin_rotation_rate: float = 1.0
+
 @export_group("Node References")
 ## The root skin of the player. The model should face in the negative Z axis.
 @export var skin: Node3D
@@ -25,6 +28,8 @@ extends CharacterBody3D
 @export var camera_controller: CameraController3D
 ## The main camera that is attached to the player.
 @onready var camera: Camera3D = camera_controller.camera
+## A 2D representation of [member CharacterBody3D.velocity].
+var velocity_2d: Vector2
 
 
 func _ready() -> void:
@@ -32,7 +37,12 @@ func _ready() -> void:
 	print(self)
 
 
+func _process(delta: float) -> void:
+	_handle_animations(delta)
+
+
 func _physics_process(delta: float) -> void:
+	velocity_2d = Vector2(velocity.x, velocity.z)
 	_handle_movement(delta)
 	_handle_attack()
 	
@@ -106,6 +116,19 @@ func _shoot_raycast_from_viewport_center(
 	# return the collision result as a dictionary
 	var result := space_state.intersect_ray(query)
 	return result
+
+
+# Handles the logic for animating the skin.
+func _handle_animations(delta: float) -> void:
+	if velocity_2d.length() > 0.0:
+		# if a line of code is getting too long you can use \ to split it in the
+		# line below. This is the same as writing:
+		# skin.rotation.y = Vector2.from_angle(skin.rotation.y).move_toward(Vector2(velocity_2d.x, -velocity_2d.y).rotated(-PI/2), skin_rotation_rate * delta).angle()
+		# in one line.
+		skin.rotation.y = Vector2.from_angle(skin.rotation.y) \
+			.move_toward(Vector2(velocity_2d.x, -velocity_2d.y) \
+			.rotated(-PI/2), skin_rotation_rate * delta) \
+			.angle()
 
 
 # *************************************************
