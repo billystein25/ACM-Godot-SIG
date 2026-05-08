@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://yqp7njbvpnme"]
+
+[ext_resource type="Script" uid="uid://d3hgjtxnn5vba" path="res://scenes/UI/stage_select/stage_select.gd" id="1_yqcrx"]
+
+[sub_resource type="Theme" id="Theme_7jm85"]
+default_font_size = 32
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0.9140625, 0.9140625, 0.9140625, 1)
+Button/colors/font_hover_color = Color(0.40784314, 0.40784314, 0.40784314, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.40625, 0.40625, 0.40625, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 20
+Button/font_sizes/font_size = 32
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[node name="StageSelect" type="CanvasLayer" unique_id=1127382381]
+script = ExtResource("1_yqcrx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=793847570]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Select2D" type="Button" parent="VBoxContainer" unique_id=58587797]
+layout_mode = 2
+theme = SubResource("Theme_7jm85")
+text = "Play the 2D level."
+
+[node name="Select3D" type="Button" parent="VBoxContainer" unique_id=672616222]
+layout_mode = 2
+theme = SubResource("Theme_7jm85")
+text = "Play the 3D level."
