@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://cop1yrmk70drg"]
+
+[ext_resource type="Script" uid="uid://clguo4sreobra" path="res://scenes/UI/ui.gd" id="1_suays"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkfj4"]
+bg_color = Color(0.04049591, 0.171875, 0.008056641, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jfgtr"]
+bg_color = Color(0.09779143, 0.4140625, 0.021026611, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 1
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Theme" id="Theme_mkfj4"]
+default_font_size = 24
+ProgressBar/colors/font_color = Color(0, 0, 0, 1)
+ProgressBar/colors/font_outline_color = Color(1, 1, 1, 1)
+ProgressBar/constants/outline_size = 8
+ProgressBar/font_sizes/font_size = 24
+ProgressBar/fonts/font = null
+ProgressBar/styles/background = SubResource("StyleBoxFlat_mkfj4")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_jfgtr")
+
+[node name="UI" type="CanvasLayer" unique_id=1565469587 node_paths=PackedStringArray("health_bar")]
+script = ExtResource("1_suays")
+health_bar = NodePath("HealthBar")
+
+[node name="HealthBar" type="ProgressBar" parent="." unique_id=1048322641]
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.95
+anchor_right = 0.9
+anchor_bottom = 0.95
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_mkfj4")
+max_value = 150.0
+value = 150.0

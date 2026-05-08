@@ -35,11 +35,19 @@ extends CharacterBody3D
 @onready var camera: Camera3D = camera_controller.camera
 ## A 2D representation of [member CharacterBody3D.velocity].
 var velocity_2d: Vector2
+## The main [HealthComponent] of the player for tracking health.
+@export var health_component: HealthComponent
 
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	print(self)
+	Globals.player_node = self
+	
+	health_component.health_changed.connect(
+		func(value: float):
+			if Globals.ui_node:
+				Globals.ui_node.set_health_bar_value(value)
+	)
 
 
 func _process(delta: float) -> void:

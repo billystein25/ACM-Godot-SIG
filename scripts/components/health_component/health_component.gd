@@ -14,6 +14,10 @@ signal died(from: StringName)
 signal health_reached_0
 ## Emitted when the body's when the body's [memebr current_hits] reaches [code]0[/code].
 signal hits_reached_0
+## Emitted whenever [member current_health] changes value.
+signal health_changed(new_value: float)
+## Emitted whenever [member current_hits] changes value.
+signal hits_changed(new_value: float)
 
 
 ## The flags that specify when the body can be revived.
@@ -37,6 +41,7 @@ var max_health: float = 100.0:
 @onready var current_health: float = max_health:
 	set(value):
 		current_health = clampf(value, 0.0, max_health)
+		health_changed.emit(value)
 		if current_health == 0.0 and not _dead:
 			health_reached_0.emit()
 			died.emit(&"Health")
@@ -46,6 +51,7 @@ var max_health: float = 100.0:
 var max_hits: int = 10:
 	set(value):
 		max_hits = maxi(0, value)
+		hits_changed.emit(value)
 		if max_hits < current_hits:
 			current_hits = max_hits
 ## The current number of inidividual hits remaining before the body is considered dead. Only used
@@ -130,7 +136,6 @@ func get_damaged(damage: float, overide_dead := false) -> void:
 		current_health -= damage
 	if is_hits_tracked():
 		current_hits -= 1
-	print(current_health)
 
 
 ## Heal the body by [param damage] health points and increase [member current_hits] by

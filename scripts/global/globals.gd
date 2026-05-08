@@ -4,6 +4,8 @@ extends Node
 ## A reference to the [Player3D] to be used by other nodes for targeting.
 var player_node: Player3D
 
+var ui_node: UI
+
 ## The list of active [Bullet3D]s. Bullets that are already active and shown
 ## in the scene.
 var active_bullets: Array[Bullet3D]
