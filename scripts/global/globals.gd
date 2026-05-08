@@ -29,7 +29,6 @@ func request_bullet(pos: Vector3, dir: Vector3, spd: float, parent: Node) -> voi
 
 ## Deactivates [param bullet] and removes it from [member active_bullets].
 func request_deactivate_bullet(bullet: Bullet3D) -> void:
-	print(active_bullets)
 	var id: int = active_bullets.find(bullet)
 	if id == -1:
 		push_error("Bullet '%s' is not in active_bullets array" % str(bullet))

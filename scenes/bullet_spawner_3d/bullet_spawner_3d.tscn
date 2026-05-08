@@ -2,12 +2,25 @@
 
 [ext_resource type="Script" uid="uid://clx4uenvs6as6" path="res://scenes/bullet_spawner_3d/bullet_spawner_3d.gd" id="1_4akyc"]
 
-[node name="BulletSpawner3D" type="Marker3D" unique_id=2041376909 node_paths=PackedStringArray("interval")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4akyc"]
+albedo_color = Color(0.1618042, 0.16927862, 0.171875, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_4akyc"]
+material = SubResource("StandardMaterial3D_4akyc")
+top_radius = 0.0
+
+[node name="BulletSpawner3D" type="Node3D" unique_id=218331375 node_paths=PackedStringArray("interval_timer", "marker_3d")]
 script = ExtResource("1_4akyc")
-speed = 1.0
-interval = NodePath("IntervalTimer")
-metadata/_custom_type_script = "uid://clx4uenvs6as6"
+speed = 2.0
+interval_timer = NodePath("IntervalTimer")
+marker_3d = NodePath("Marker3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=249494800]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, -1)
+mesh = SubResource("CylinderMesh_4akyc")
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=544346897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 
 [node name="IntervalTimer" type="Timer" parent="." unique_id=18102800]
 wait_time = 3.0
-autostart = true
