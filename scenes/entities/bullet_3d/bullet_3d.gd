@@ -21,6 +21,10 @@ const BULLET_3D = preload("uid://ng6cpextk2wi")
 ## The speed at which the bullet is moving at.
 @export var speed: float
 
+@export_group("Node References")
+@export var hitbox: HandledHitbox3D
+@export var life_timer: Timer
+
 @onready var _cpu_particles_3d: CPUParticles3D = $CPUParticles3D
 
 
@@ -28,10 +32,41 @@ func _ready() -> void:
 	direction = direction.normalized()
 	_cpu_particles_3d.gravity = -direction * 6.0
 	_cpu_particles_3d.direction = -direction
+	
+	life_timer.timeout.connect(
+		func():
+			Globals.request_deactivate_bullet(self)
+	)
+	hitbox.body_entered.connect(
+		func(_body: Node3D):
+			Globals.request_deactivate_bullet(self)
+	)
+	hitbox.area_entered.connect(
+		func(_area: Area3D):
+			Globals.request_deactivate_bullet(self)
+	)
 
 
 func _physics_process(delta: float) -> void:
 	position += direction * speed * delta
+
+
+## Activates and shows the bullet.
+func activate(pos: Vector3, dir: Vector3, spd: float) -> void:
+	position = pos
+	direction = dir
+	speed = spd
+	life_timer.start()
+	show()
+	hitbox.enable()
+
+
+## Dectivates and hides the bullet.
+func deactivate() -> void:
+	hide()
+	hitbox.disable()
+	speed = 0.0
+	life_timer.stop()
 
 
 # A static function is a function that can be called without having an instance of

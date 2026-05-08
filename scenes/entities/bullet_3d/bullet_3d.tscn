@@ -25,8 +25,10 @@ particles_anim_loop = false
 [sub_resource type="QuadMesh" id="QuadMesh_lu8hm"]
 material = SubResource("StandardMaterial3D_qd8ui")
 
-[node name="Bullet3D" type="Node3D" unique_id=439403177]
+[node name="Bullet3D" type="Node3D" unique_id=439403177 node_paths=PackedStringArray("hitbox", "life_timer")]
 script = ExtResource("1_0vrmx")
+hitbox = NodePath("HandledHitbox3D")
+life_timer = NodePath("LifeTimer")
 
 [node name="Mesh" type="MeshInstance3D" parent="." unique_id=755216947]
 mesh = SubResource("SphereMesh_3uwg8")
@@ -43,8 +45,14 @@ metadata/_custom_type_script = "uid://w26kdpov8844"
 shape = SubResource("SphereShape3D_bm3w3")
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=718827737]
+local_coords = true
 mesh = SubResource("QuadMesh_lu8hm")
 direction = Vector3(0, 0, 1)
 spread = 20.0
 gravity = Vector3(0, 0, 6)
 initial_velocity_max = 2.0
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=209481371]
+wait_time = 5.0
+one_shot = true
+autostart = true

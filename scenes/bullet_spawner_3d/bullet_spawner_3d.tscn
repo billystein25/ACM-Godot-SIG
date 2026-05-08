@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bgxgeyjbtxhp5"]
+
+[ext_resource type="Script" uid="uid://clx4uenvs6as6" path="res://scenes/bullet_spawner_3d/bullet_spawner_3d.gd" id="1_4akyc"]
+
+[node name="BulletSpawner3D" type="Marker3D" unique_id=2041376909 node_paths=PackedStringArray("interval")]
+script = ExtResource("1_4akyc")
+speed = 1.0
+interval = NodePath("IntervalTimer")
+metadata/_custom_type_script = "uid://clx4uenvs6as6"
+
+[node name="IntervalTimer" type="Timer" parent="." unique_id=18102800]
+wait_time = 3.0
+autostart = true
